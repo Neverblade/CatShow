@@ -305,15 +305,25 @@ public class CatShowFrame extends JFrame
 		int val = fc.showSaveDialog((JFrame) this);
 		if (val == JFileChooser.APPROVE_OPTION)
 		{
+			//choose initial path and name
 			File file = fc.getSelectedFile();
 			String fileName = file.getAbsolutePath();
+			
 			//remove the possible extension
-			if (fileName.indexOf(".") == -1) fileName += ".jpg";
+			String extension = "";
+			if (fileName.indexOf(".") != -1) //user input their own extension, use that
+			{
+				extension = fileName.substring(fileName.indexOf(".") + 1, fileName.length());
+			} else //user didn't put their own extension, use jpg
+			{
+				extension = "jpg";
+				fileName += ".jpg";
+			}
 						
 			System.out.println("Saving to: " + fileName);
 			try
 			{
-				ImageIO.write(image, "jpg", new File(fileName));
+				ImageIO.write(image, extension, new File(fileName));
 			} catch (IOException e) { System.out.println("Failed to save image..."); }
 			System.out.println("Saving complete!");
 		}
