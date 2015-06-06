@@ -1,0 +1,41 @@
+Cat Slideshow
+ 
+What it does:
+	A simple display of cat images, one by one
+	Every x seconds, a new cat image will show up.
+	cat images are taken from some online database (don't want a huge file)
+	
+How to do it:
+	look into Flickr's API and search system, grab cat photos off there
+	Frame will be relatively simple
+	Develop some way of smoothly transitioning between photos
+		fading?
+		scrolling?
+		
+What I'll Learn:
+	mainly how to deal with online APIs, authentication of service, search queries, wrappers, etc.
+	graphics stuff will be image related/possible reiteration and improvement of graphics
+	
+Flickr API Key: bbc2f1afe94ec0c3e8bf5f6a30a5f822
+Flickr Secret: 703cd5bd61ed0071
+
+TheCatAPI Key: MTk1NjI
+
+Searching for Images using Flickr:
+
+https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=b03c65671e67045256f2b0c83078e3c3&per_page=20&page=1&format=json&nojsoncallback=1
+
+	Notes:
+		it's using my API key in the url already...
+		per_page=20 is the key, change that if needed
+		everything else should probably stay the same
+		
+Retrieving an Image URL given the info from searching:
+
+https://farm9.staticflickr.com/8849/18459347452_227b3c3552_m.jpg
+
+Farm ID: 9
+Server ID: 8849
+Picture ID: 18459347452
+Secret: 227b3c3552
+Size: m
